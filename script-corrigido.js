@@ -181,6 +181,7 @@ function eFeriado(data) {
     sextaSanta,
     corpus,*/,
     ...feriadosMoveis 
+
     
   ];
 
