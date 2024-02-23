@@ -180,7 +180,8 @@ function eFeriado(data) {
     pascoa,
     sextaSanta,
     corpus,*/,
-    ...feriadosMoveis
+    ...feriadosMoveis 
+    
   ];
 
   const dataFormatada = dateToStrDayMonth(data);
