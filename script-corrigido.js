@@ -88,31 +88,15 @@ function gerarCalendario() {
 }
 
 function eFeriado(data) {
-  
+  // const feriadosMoveis = retornaFeriadosMoveis(data.getFullYear());
+  // const feriadosFixos = retornaFeriadosFixos();
 
+  // const listaDeFeriados = [...feriadosFixos, ...feriadosMoveis];
+const listaDeFeriados = retornaFeriados(data.getFullYear())
 
-  const feriadosMoveis = retornaFeriadosMoveis(data.getFullYear())
-  const feriadosFixos = retornaFeriadosFixos();
+   const dataFormatada = dateToStrDayMonth(data);
 
-  const feriados = [
-    ...feriadosFixos,
-    ...feriadosMoveis
-  ]
-  // const feriados = [
-  //   "01/01", // Ano Novo
-  //   "01/05", // Dia do Trabalho
-  //   "25/07", // Dia Estadual da Consciencia Negra
-  //   "07/09", // Independência do Brasil
-  //   "12/10", // Dia de Nossa Senhora Aparecida
-  //   "15/11", // Dia da proclamação da república
-  //   "02/11", // Finados
-  //   "25/12", // Natal
-  //   ...feriadosMoveis   
-  // ];
-
-  const dataFormatada = dateToStrDayMonth(data);
-
-  return feriados.includes(dataFormatada);
+  return listaDeFeriados.includes(dataFormatada);
 }
 
 function dateToStrDayMonth(data) {
@@ -201,8 +185,7 @@ function retornaFeriadosMoveis(ano) {
   return [carnaval, pascoa, sextaSanta, corpus];
 }
 
-function retornaFeriadosFixos(){
-
+function retornaFeriadosFixos() {
   const feriadosFixos = [
     "01/01", // Ano Novo
     "01/05", // Dia do Trabalho
@@ -211,11 +194,19 @@ function retornaFeriadosFixos(){
     "12/10", // Dia de Nossa Senhora Aparecida
     "15/11", // Dia da proclamação da república
     "02/11", // Finados
-    "25/12" // Natal
-      
+    "25/12", // Natal
   ];
 
   return feriadosFixos;
+}
 
+
+function  retornaFeriados(ano){
+  const feriadosMoveis = retornaFeriadosMoveis(ano);
+  const feriadosFixos = retornaFeriadosFixos();
+
+  const listaDeFeriados = [...feriadosFixos, ...feriadosMoveis];
+  return listaDeFeriados
   
+
 }
